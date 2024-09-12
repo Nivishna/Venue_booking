@@ -29,5 +29,21 @@
             <button type="submit" class="btn">Login</button>
         </form>
     </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Check if the credentials match the admin login
+            if (username === 'admin' && password === 'admin') {
+                window.location.href = 'admin-dashboard.html'; // Redirect to admin dashboard
+            } else {
+                // Assume all other usernames/passwords are for regular users
+                window.location.href = 'dashboard.html'; // Redirect to user dashboard
+            }
+        });
+    </script>
 </body>
 </html>

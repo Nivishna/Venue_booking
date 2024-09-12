@@ -41,6 +41,8 @@ nav {
 }
 .content{
     margin:200px;
+    text-align: center;
+    padding: 150px;
 }
 
 .form-container {
