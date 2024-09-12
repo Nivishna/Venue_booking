@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classrooms - BT Venues</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function loadUsername() {
+            const params = new URLSearchParams(window.location.search);
+            const username = params.get('username');
+            document.getElementById('username-display').textContent = username;
+        }
+    </script>
+</head>
+<body onload="loadUsername()">
+    <nav>
+        <div class="logo">BT Venues</div>
+        <div class="nav-links">
+            <span id="username-display"></span>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>Classrooms</h1>
+        <ul class="venue-list">
+            <li>Classroom 101</li>
+            <li>Classroom 102</li>
+            <li>Classroom 103</li>
+        </ul>
+    </div>
+</body>
+</html>
