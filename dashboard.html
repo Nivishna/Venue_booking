@@ -17,7 +17,7 @@
 
     <div class="form-container">
         <h1>Venue Booking Form</h1>
-        <form action="submit_booking.html" method="post">
+        <form action="submit_booking.php" method="post">
             <!-- Faculty Details -->
             <div class="form-group">
                 <label for="facultyName">Faculty Name:</label>
@@ -27,7 +27,7 @@
                 <label for="facultyId">Faculty ID:</label>
                 <input type="text" id="facultyId" name="facultyId" required>
             </div>
-
+        
             <!-- Event Details -->
             <div class="form-group">
                 <label for="eventName">Event Name:</label>
@@ -37,7 +37,7 @@
                 <label for="eventId">Event ID:</label>
                 <input type="text" id="eventId" name="eventId" required>
             </div>
-
+        
             <!-- Venue Type -->
             <div class="form-group">
                 <label for="venueType">Type of Venue Required:</label>
@@ -48,7 +48,7 @@
                     <option value="seminarHall">Seminar Hall</option>
                 </select>
             </div>
-
+        
             <!-- Event Type -->
             <div class="form-group">
                 <label>Event Type:</label>
@@ -58,12 +58,13 @@
                     <label><input type="radio" name="eventType" value="tnp"> T&P Event</label>
                 </div>
             </div>
-
+        
             <!-- Submit Button -->
             <div class="form-group">
                 <button type="submit" class="btn">Submit</button>
             </div>
         </form>
+        
     </div>
 
     <script>
