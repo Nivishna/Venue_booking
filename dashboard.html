@@ -1,82 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venue Booking Form - BT Venues</title>
+    <title>BT Venues - Dashboard</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <script>
+        // Get username from URL and display it
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const username = params.get('username') || 'User'; // Default to 'User' if no username is provided
+            document.getElementById('user-name').innerText = username;
+        }
+    </script>
 </head>
-<body>
-    <nav>
-        <div class="logo">BT Venues</div>
-        <div class="nav-links">
-            <span id="username-display">Welcome, <span id="username">User</span></span>
-        </div>
-    </nav>
 
-    <div class="form-container">
-        <h1>Venue Booking Form</h1>
-        <form action="submit_booking.php" method="post">
-            <!-- Faculty Details -->
-            <div class="form-group">
-                <label for="facultyName">Faculty Name:</label>
-                <input type="text" id="facultyName" name="facultyName" required>
-            </div>
-            <div class="form-group">
-                <label for="facultyId">Faculty ID:</label>
-                <input type="text" id="facultyId" name="facultyId" required>
-            </div>
-        
-            <!-- Event Details -->
-            <div class="form-group">
-                <label for="eventName">Event Name:</label>
-                <input type="text" id="eventName" name="eventName" required>
-            </div>
-            <div class="form-group">
-                <label for="eventId">Event ID:</label>
-                <input type="text" id="eventId" name="eventId" required>
-            </div>
-        
-            <!-- Venue Type -->
-            <div class="form-group">
-                <label for="venueType">Type of Venue Required:</label>
-                <select id="venueType" name="venueType" required>
-                    <option value="">Select Venue Type</option>
-                    <option value="auditorium">Auditorium</option>
-                    <option value="classroom">Classroom</option>
-                    <option value="seminarHall">Seminar Hall</option>
-                </select>
-            </div>
-        
-            <!-- Event Type -->
-            <div class="form-group">
-                <label>Event Type:</label>
-                <div class="radio-group">
-                    <label><input type="radio" name="eventType" value="department" required> Department Event</label>
-                    <label><input type="radio" name="eventType" value="club"> Club Event</label>
-                    <label><input type="radio" name="eventType" value="tnp"> T&P Event</label>
+<body>
+    <header class="navbar">
+        <span>Welcome, <span id="user-name"></span>!</span>
+        <input type="text" class="search-bar" placeholder="Search...">
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#" onclick="showForm('bookVenue')">Book Venues</a></li>
+                <li><a href="#">My Dashboard</a></li>
+            </ul>
+        </aside>
+
+        <div class="main-content">
+            <main class="content">
+                <!-- Section for dynamic content -->
+                <div id="bookVenue" class="form-container" style="display: none;">
+                    <form>
+                        <!-- Faculty Details -->
+                        <div class="form-group">
+                            <label for="facultyName">Faculty Name:</label>
+                            <input type="text" id="facultyName" name="facultyName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="facultyId">Faculty ID:</label>
+                            <input type="text" id="facultyId" name="facultyId" required>
+                        </div>
+
+                        <!-- Event Details -->
+                        <div class="form-group">
+                            <label for="eventName">Event Name:</label>
+                            <input type="text" id="eventName" name="eventName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventId">Event ID:</label>
+                            <input type="text" id="eventId" name="eventId" required>
+                        </div>
+
+                        <!-- Venue Type -->
+                        <div class="form-group">
+                            <label for="venueType">Type of Venue Required:</label>
+                            <select id="venueType" name="venueType" required>
+                                <option value="">Select Venue Type</option>
+                                <option value="auditorium">Auditorium</option>
+                                <option value="classroom">Classroom</option>
+                                <option value="seminarHall">Seminar Hall</option>
+                            </select>
+                        </div>
+
+                        <!-- Event Type -->
+                        <div class="form-group">
+                            <label>Event Type:</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="eventType" value="department" required> Department Event</label>
+                                <label><input type="radio" name="eventType" value="club"> Club Event</label>
+                                <label><input type="radio" name="eventType" value="tnp"> T&P Event</label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-group">
+                            <button type="submit" class="btn">Submit</button>
+                        </div>
+                    </form>
                 </div>
-            </div>
-        
-            <!-- Submit Button -->
-            <div class="form-group">
-                <button type="submit" class="btn">Submit</button>
-            </div>
-        </form>
-        
+            </main>
+        </div>
     </div>
 
     <script>
-        // Example of setting the username from localStorage or other client-side storage
-        document.addEventListener('DOMContentLoaded', () => {
-            // Assume the username is stored in localStorage after login
-            const username = localStorage.getItem('username') || 'User';
-            document.getElementById('username').textContent = username;
-        });
-
-        // Alternatively, set the username after a login process
-        // localStorage.setItem('username', 'John Doe'); // Set username on successful login
+        // Function to display the form
+        function showForm(formId) {
+            document.getElementById('bookVenue').style.display = 'block';
+        }
     </script>
 </body>
+
 </html>
